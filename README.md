@@ -8,6 +8,8 @@
 ## My Assumptions
 * Routing is not needed for this demonstration
 * Design: Material is suitible for application
-* Every Row is assumed to have an ID
 * Must be mobile responsive
+* Every Row is assumed to have an ID
+* If there are rows with duplicate ID's its possible those rows will get overwritten
+* In a real-world example I would look to do data-munging like this on the backend
 * No need to do feature branching for this test
