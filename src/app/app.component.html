@@ -1,5 +1,11 @@
 <div class="table-container">
-
+  <div class="search">
+    <mat-form-field appearance="fill">
+      <mat-label>Filter Results</mat-label>
+      <input #search matInput type="text" (keyup)="applyFilter(search.value)">
+      <mat-icon matSuffix>search</mat-icon>
+    </mat-form-field>
+  </div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <ng-container matColumnDef="id">

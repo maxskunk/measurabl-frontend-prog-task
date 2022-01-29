@@ -12,7 +12,7 @@ import { User } from '../models/user.model';
 export class MsrMockApiService {
 
   /**
-   * This map is used to normalize the data from the two separate calls
+   * This map is used to normalize the data from the two separate endpoints
    */
   private _userMap = new Map<string, User>();
 
@@ -29,6 +29,7 @@ export class MsrMockApiService {
   }
 
   public getUsers(): Observable<User[]> {
+    console.log("CALLED")
     //Clear out the user map
     this._userMap = new Map<string, User>()
 
@@ -36,6 +37,7 @@ export class MsrMockApiService {
       map(([userAges, userNames]) => {
         userAges.forEach(age => this.addUserDataToMap(age));
         userNames.forEach(name => this.addUserDataToMap(name));
+
         //Once the map is build we convert it to an array of users
         return [...this._userMap].map(([k, v]) => { return v });
       }));
@@ -48,6 +50,7 @@ export class MsrMockApiService {
   private addUserDataToMap(data: UserAge | UserName) {
     if (data.id) {
       const user = this._userMap.get(data.id);
+
       //User Exists in map, lets add data
       if (user) {
         Object.assign(user, data);

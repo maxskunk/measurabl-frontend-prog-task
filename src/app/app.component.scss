@@ -1,6 +1,22 @@
-.table-container {
-    table{
+$screen-sm-min: 768px;
+
+.table-container{
+    .search {
+        padding-top:20px;
+        text-align: center;
+        mat-form-field{
+
+            min-width: 300px;
+            width:40%;
+        }
+    }
+    table {
         margin:auto;
-        width:80%;
+        @media (min-width: $screen-sm-min) { 
+            width:80%;
+         }
+         width:100%
+
     }
 }
+
